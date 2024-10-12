@@ -10,6 +10,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.IO;
+
 
 
 namespace SuperPing_Santamaria
@@ -47,6 +49,8 @@ namespace SuperPing_Santamaria
 
         }
          DispatcherTimer Timer;
+         private int tempoTrascorso = 0;
+
         private void timer_Tick (object sender, EventArgs e)
         {
 
@@ -141,7 +145,17 @@ namespace SuperPing_Santamaria
                     StatIcon4.Stretch = Stretch.Fill;
                     StatIcon4.Source = bi2; // Immagine "attention"
                 }
+            }
 
+
+            //PROGRESS BAR
+            tempoTrascorso++;
+            progressBar.Value = (tempoTrascorso / 30.0) * 100;
+            if (tempoTrascorso >= 30)
+            {
+                Timer.Stop();
+                progressBar.Value = 0;
+                tempoTrascorso = 0;
             }
         }
 
@@ -153,12 +167,28 @@ namespace SuperPing_Santamaria
             Timer.Tick += new EventHandler(timer_Tick);
             Timer.Interval = TimeSpan.FromSeconds(30);
             Timer.Start();
+
+
+            //PROGRESS BAR
+            progressBar.Visibility = Visibility.Visible;
+            Timer = new DispatcherTimer();
+            Timer.Interval = TimeSpan.FromSeconds(1); // 1 secondo
+            Timer.Tick += timer_Tick;
+            Timer.Start();
+
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
-            Timer.Stop();
+            if (Timer != null)
+            {
+                Timer.Stop();
+                Timer = null;
+            }
+            progressBar.Value = 0;
+            tempoTrascorso = 0;
         }
     }
+
 }
 
