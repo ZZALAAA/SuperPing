@@ -11,6 +11,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.IO;
+using System.Net;
 
 
 
@@ -47,6 +48,7 @@ namespace SuperPing_Santamaria
             bi3.EndInit();
 
 
+            CaricoIpDaConfig();
         }
          DispatcherTimer Timer;
          private int tempoTrascorso = 0;
@@ -176,6 +178,9 @@ namespace SuperPing_Santamaria
             Timer.Tick += timer_Tick;
             Timer.Start();
 
+            //CREA FILE 
+
+            VerificaEAggiungiIPNelFile();
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
@@ -187,6 +192,52 @@ namespace SuperPing_Santamaria
             }
             progressBar.Value = 0;
             tempoTrascorso = 0;
+        }
+
+
+        private void VerificaEAggiungiIPNelFile()
+        {
+            string filePath = "config.txt";
+            string[] ipAddresses = new string[] { txtIP00.Text, txtIP01.Text, txtIP02.Text, txtIP03.Text };
+
+            // Verifica se il file esiste
+            if (File.Exists(filePath))
+            {
+                // Leggi gli IP dal file
+                string[] existingIPs = File.ReadAllLines(filePath);
+
+                // Aggiungi gli IP nuovi al file
+                foreach (string ipAddress in ipAddresses)
+                {
+                    if (!existingIPs.Contains(ipAddress))
+                    {
+                        File.AppendAllLines(filePath, new string[] { ipAddress });
+                    }
+                }
+            }
+            else
+            {
+                // Crea il file e scrivi gli IP
+                File.WriteAllLines(filePath, ipAddresses);
+            }
+        }
+
+        private void CaricoIpDaConfig()
+        {
+            StringBuilder ipAddressText = new StringBuilder();
+
+            using (StreamReader sr = new StreamReader("config.txt"))
+            {
+                string[] ipDaConfig = File.ReadAllLines("config.txt");
+
+                for (int i = 0; i < ipDaConfig.Length && i < 10; i++)
+                {
+                    if (!string.IsNullOrWhiteSpace(ipDaConfig[i]))
+                    {
+                        ipAddressText.AppendLine(ipDaConfig[i]);
+                    }
+                }
+            }
         }
     }
 
