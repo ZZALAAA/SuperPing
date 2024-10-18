@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuperPing_Santamaria"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="White">
+        Title="SuperPing" Height="450" Width="800" Background="White">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -20,6 +20,12 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Label Content="Host / IP" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" FontStyle="Italic"/>
         <Label Content="Status" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" FontStyle="Italic"/>
@@ -28,22 +34,50 @@
         <TextBox x:Name="txtIP01" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="2" Text="" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Margin="0,0,10,0"/>
         <TextBox x:Name="txtIP02" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="3" Text="" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Margin="0,0,10,0"/>
         <TextBox x:Name="txtIP03" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="4" Text="" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Margin="0,0,10,0"/>
+        <TextBox x:Name="txtIP04" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="5" Text="" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Margin="0,0,10,0"/>
+        <TextBox x:Name="txtIP05" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="6" Text="" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Margin="0,0,10,0"/>
+        <TextBox x:Name="txtIP06" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="7" Text="" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Margin="0,0,10,0"/>
+        <TextBox x:Name="txtIP07" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="8" Text="" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Margin="0,0,10,0"/>
+        <TextBox x:Name="txtIP08" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="9" Text="" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Margin="0,0,10,0"/>
+        <TextBox x:Name="txtIP09" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="10" Text="" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" Margin="0,0,10,0"/>
+
         <TextBox x:Name="txtStatus00" Text="" Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" />
         <TextBox x:Name="txtStatus01" Text="" Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="2" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
         <TextBox x:Name="txtStatus02" Text="" Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="3" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
         <TextBox x:Name="txtStatus03" Text="" Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="4" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        <TextBox x:Name="txtStatus04" Text="" Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="5" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        <TextBox x:Name="txtStatus05" Text="" Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="6" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        <TextBox x:Name="txtStatus06" Text="" Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="7" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        <TextBox x:Name="txtStatus07" Text="" Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="8" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        <TextBox x:Name="txtStatus08" Text="" Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="9" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        <TextBox x:Name="txtStatus09" Text="" Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="10" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        
         <TextBox x:Name="txtMs00"  Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Background="White"/>
         <TextBox x:Name="txtMs01" Text="" Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="2" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Background="White"/>
         <TextBox x:Name="txtMs02" Text="" Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="3" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Background="White"/>
         <TextBox x:Name="txtMs03" Text="" Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="4" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Background="White"/>
+        <TextBox x:Name="txtMs04" Text="" Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="5" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Background="White"/>
+        <TextBox x:Name="txtMs05" Text="" Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="6" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Background="White"/>
+        <TextBox x:Name="txtMs06" Text="" Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="7" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Background="White"/>
+        <TextBox x:Name="txtMs07" Text="" Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="8" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Background="White"/>
+        <TextBox x:Name="txtMs08" Text="" Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="9" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Background="White"/>
+        <TextBox x:Name="txtMs09" Text="" Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="10" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Background="White"/>
+
         <Button x:Name="btnStart" Content="START" HorizontalAlignment="Center" VerticalAlignment="Center" Height="87" Width="133" Background="Green" FontWeight="Bold" FontStyle="Italic" FontSize="20" Click="btnStart_Click"/>
-        <Button x:Name="btnStop" Content="STOP" HorizontalAlignment="Center" VerticalAlignment="Center" Height="87" Width="133" Background="Red" FontWeight="Bold" FontStyle="Italic" FontSize="20" Click="btnStop_Click" Grid.Row="4"/>
+        <Button x:Name="btnStop" Content="STOP" HorizontalAlignment="Center" VerticalAlignment="Center" Height="87" Width="133" Background="Red" FontWeight="Bold" FontStyle="Italic" FontSize="20" Click="btnStop_Click" Grid.Row="10"/>
 
 
         <Image x:Name="StatIcon" Grid.Column="3" Grid.Row="1"/>
         <Image x:Name="StatIcon2" Grid.Column="3" Grid.Row="2"/>
         <Image x:Name="StatIcon3" Grid.Column="3" Grid.Row="3"/>
         <Image x:Name="StatIcon4" Grid.Column="3" Grid.Row="4"/>
+        <Image x:Name="StatIcon5" Grid.Column="3" Grid.Row="5"/>
+        <Image x:Name="StatIcon6" Grid.Column="3" Grid.Row="6"/>
+        <Image x:Name="StatIcon7" Grid.Column="3" Grid.Row="7"/>
+        <Image x:Name="StatIcon8" Grid.Column="3" Grid.Row="8"/>
+        <Image x:Name="StatIcon9" Grid.Column="3" Grid.Row="9"/>
+        <Image x:Name="StatIcon10" Grid.Column="3" Grid.Row="10"/>
+
 
 
         <ProgressBar x:Name="progressBar" HorizontalAlignment="Center" Height="30" Grid.Row="2" VerticalAlignment="Center" Width="100" 

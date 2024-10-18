@@ -46,14 +46,13 @@ namespace SuperPing_Santamaria
             bi3.BeginInit();
             bi3.UriSource = new Uri("error.png", UriKind.Relative);
             bi3.EndInit();
-
-
-            CaricoIpDaConfig();
         }
-         DispatcherTimer Timer;
-         private int tempoTrascorso = 0;
+        DispatcherTimer Timer;
+        DispatcherTimer Timer2;
 
-        private void timer_Tick (object sender, EventArgs e)
+        private int tempoTrascorso = 0;
+
+        private void timer_Tick(object sender, EventArgs e)
         {
 
             string indirizzo = txtIP00.Text;
@@ -149,97 +148,198 @@ namespace SuperPing_Santamaria
                 }
             }
 
-
-            //PROGRESS BAR
-            tempoTrascorso++;
-            progressBar.Value = (tempoTrascorso / 30.0) * 100;
-            if (tempoTrascorso >= 30)
+            string indirizzo4 = txtIP04.Text;
+            if (!string.IsNullOrEmpty(indirizzo4))
             {
-                Timer.Stop();
-                progressBar.Value = 0;
-                tempoTrascorso = 0;
+
+                Ping pinger4 = new Ping();
+                PingReply reply4 = pinger4.Send(indirizzo4);
+                string stato4 = reply4.Status.ToString();
+                string tempo4 = reply4.RoundtripTime.ToString();
+                txtStatus04.Text = stato4;
+                txtMs04.Text = tempo4;
+
+                if (int.Parse(tempo4) < 50)
+                {
+                    StatIcon5.Stretch = Stretch.Fill;
+                    StatIcon5.Source = bi1; // Immagine "ok"
+                }
+                else
+                {
+                    StatIcon5.Stretch = Stretch.Fill;
+                    StatIcon5.Source = bi2; // Immagine "attention"
+                }
             }
+
+
+            string indirizzo5 = txtIP05.Text;
+            if (!string.IsNullOrEmpty(indirizzo5))
+            {
+
+                Ping pinger5 = new Ping();
+                PingReply reply5 = pinger5.Send(indirizzo5);
+                string stato5 = reply5.Status.ToString();
+                string tempo5 = reply5.RoundtripTime.ToString();
+                txtStatus05.Text = stato5;
+                txtMs05.Text = tempo5;
+
+                if (int.Parse(tempo5) < 50)
+                {
+                    StatIcon6.Stretch = Stretch.Fill;
+                    StatIcon6.Source = bi1; // Immagine "ok"
+                }
+                else
+                {
+                    StatIcon6.Stretch = Stretch.Fill;
+                    StatIcon6.Source = bi2; // Immagine "attention"
+                }
+            }
+
+            string indirizzo6 = txtIP06.Text;
+            if (!string.IsNullOrEmpty(indirizzo6))
+            {
+
+                Ping pinger6 = new Ping();
+                PingReply reply6 = pinger6.Send(indirizzo6);
+                string stato6 = reply6.Status.ToString();
+                string tempo6 = reply6.RoundtripTime.ToString();
+                txtStatus06.Text = stato6;
+                txtMs06.Text = tempo6;
+
+                if (int.Parse(tempo6) < 50)
+                {
+                    StatIcon7.Stretch = Stretch.Fill;
+                    StatIcon7.Source = bi1; // Immagine "ok"
+                }
+                else
+                {
+                    StatIcon7.Stretch = Stretch.Fill;
+                    StatIcon7.Source = bi2; // Immagine "attention"
+                }
+            }
+
+
+            string indirizzo7 = txtIP07.Text;
+            if (!string.IsNullOrEmpty(indirizzo7))
+            {
+
+                Ping pinger7 = new Ping();
+                PingReply reply7 = pinger7.Send(indirizzo7);
+                string stato7 = reply7.Status.ToString();
+                string tempo7 = reply7.RoundtripTime.ToString();
+                txtStatus07.Text = stato7;
+                txtMs07.Text = tempo7;
+
+                if (int.Parse(tempo7) < 50)
+                {
+                    StatIcon8.Stretch = Stretch.Fill;
+                    StatIcon8.Source = bi1; // Immagine "ok"
+                }
+                else
+                {
+                    StatIcon8.Stretch = Stretch.Fill;
+                    StatIcon8.Source = bi2; // Immagine "attention"
+                }
+            }
+
+
+            string indirizzo8 = txtIP08.Text;
+            if (!string.IsNullOrEmpty(indirizzo8))
+            {
+
+                Ping pinger8 = new Ping();
+                PingReply reply8 = pinger8.Send(indirizzo8);
+                string stato8 = reply8.Status.ToString();
+                string tempo8 = reply8.RoundtripTime.ToString();
+                txtStatus08.Text = stato8;
+                txtMs08.Text = tempo8;
+
+                if (int.Parse(tempo8) < 50)
+                {
+                    StatIcon9.Stretch = Stretch.Fill;
+                    StatIcon9.Source = bi1; // Immagine "ok"
+                }
+                else
+                {
+                    StatIcon9.Stretch = Stretch.Fill;
+                    StatIcon9.Source = bi2; // Immagine "attention"
+                }
+            }
+
+
+
+            string indirizzo9 = txtIP09.Text;
+            if (!string.IsNullOrEmpty(indirizzo9))
+            {
+
+                Ping pinger9 = new Ping();
+                PingReply reply9 = pinger9.Send(indirizzo9);
+                string stato9 = reply9.Status.ToString();
+                string tempo9 = reply9.RoundtripTime.ToString();
+                txtStatus09.Text = stato9;
+                txtMs09.Text = tempo9;
+
+                if (int.Parse(tempo9) < 50)
+                {
+                    StatIcon10.Stretch = Stretch.Fill;
+                    StatIcon10.Source = bi1; // Immagine "ok"
+                }
+                else
+                {
+                    StatIcon10.Stretch = Stretch.Fill;
+                    StatIcon10.Source = bi2; // Immagine "attention"
+                }
+            }
+
+
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            //TIMER
-            timer_Tick(sender, e);
+            // Inizializza i timer
             Timer = new DispatcherTimer();
-            Timer.Tick += new EventHandler(timer_Tick);
             Timer.Interval = TimeSpan.FromSeconds(30);
-            Timer.Start();
-
-
-            //PROGRESS BAR
-            progressBar.Visibility = Visibility.Visible;
-            Timer = new DispatcherTimer();
-            Timer.Interval = TimeSpan.FromSeconds(1); // 1 secondo
             Timer.Tick += timer_Tick;
             Timer.Start();
 
-            //CREA FILE 
+            Timer2 = new DispatcherTimer();
+            Timer2.Interval = TimeSpan.FromSeconds(1);
+            Timer2.Tick += Timer2_Tick;
+            Timer2.Start();
 
-            VerificaEAggiungiIPNelFile();
+            // Inizializza la progress bar
+            tempoTrascorso = 0;
+            progressBar.Value = 0;
+            progressBar.Visibility = Visibility.Visible;
+
+            // Esegui immediatamente il ping e aggiorna la progress bar
+            timer_Tick(this, EventArgs.Empty); // Esegue il ping
+            Timer2_Tick(this, EventArgs.Empty); // Inizializza la progress bar
         }
 
+
+        private void Timer2_Tick(object sender, EventArgs e)
+        {
+            // Aumenta la progress bar ogni secondo
+            tempoTrascorso++;
+            progressBar.Value = (tempoTrascorso % 30) * (100 / 30);
+            if (tempoTrascorso >= 30)
+            {
+                tempoTrascorso = 0;
+                progressBar.Value = 0;
+            }
+        }
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
             if (Timer != null)
             {
                 Timer.Stop();
-                Timer = null;
+
+                Timer2.Stop();
             }
             progressBar.Value = 0;
             tempoTrascorso = 0;
         }
-
-
-        private void VerificaEAggiungiIPNelFile()
-        {
-            string filePath = "config.txt";
-            string[] ipAddresses = new string[] { txtIP00.Text, txtIP01.Text, txtIP02.Text, txtIP03.Text };
-
-            // Verifica se il file esiste
-            if (File.Exists(filePath))
-            {
-                // Leggi gli IP dal file
-                string[] existingIPs = File.ReadAllLines(filePath);
-
-                // Aggiungi gli IP nuovi al file
-                foreach (string ipAddress in ipAddresses)
-                {
-                    if (!existingIPs.Contains(ipAddress))
-                    {
-                        File.AppendAllLines(filePath, new string[] { ipAddress });
-                    }
-                }
-            }
-            else
-            {
-                // Crea il file e scrivi gli IP
-                File.WriteAllLines(filePath, ipAddresses);
-            }
-        }
-
-        private void CaricoIpDaConfig()
-        {
-            StringBuilder ipAddressText = new StringBuilder();
-
-            using (StreamReader sr = new StreamReader("config.txt"))
-            {
-                string[] ipDaConfig = File.ReadAllLines("config.txt");
-
-                for (int i = 0; i < ipDaConfig.Length && i < 10; i++)
-                {
-                    if (!string.IsNullOrWhiteSpace(ipDaConfig[i]))
-                    {
-                        ipAddressText.AppendLine(ipDaConfig[i]);
-                    }
-                }
-            }
-        }
     }
-
 }
 
